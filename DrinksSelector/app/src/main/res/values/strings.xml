@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Drinks Selector</string>
+    <string name="button">Button</string>
+    <string name="finish">FINISH</string>
+</resources>
