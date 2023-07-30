@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Practice App</string>
+    <string name="description" >The Devil Is a Part-Timer! (Japanese: &#12399;&#12383;&#12425;&#12367;&#39764;&#29579;&#12373;&#12414;!, Hepburn: Hataraku Ma&#333;-sama!, lit. &quot;Working Demon King!&quot; or &quot;Demon Lord at Work!&quot;) is a Japanese light novel series written by Satoshi Wagahara, with illustrations by Oniku (written as 029). ASCII Media Works has published the series in Japan, while Yen Press has published the series in North America.
+
+The story is about Satan seeking to conquer the world of Ente Isla, but when confronted by the Hero Emilia, he is forced to retreat through a gate that transports him to modern day Tokyo, Japan. To survive and find a way to return to Ente Isla, Satan adopts the name Sadao Maou and gains part-time employment at a fast food restaurant called MgRonald\'s, a parody of McDonald\'s. There have been two manga adaptations published by ASCII Media Works in Dengeki Daioh and Dengeki Maoh. A 13-episode anime adaptation produced by White Fox and directed by Naoto Hosoda aired from April to June 2013. A second season produced by 3Hz and directed by Daisuke Tsukushi aired from July to September 2022. A sequel is set to premiere in 2023.</string>
+    <string name="base_text">Devil Is a Part-Timer</string>
+    <string name="enter_your_name">Name of the author</string>
+</resources>
