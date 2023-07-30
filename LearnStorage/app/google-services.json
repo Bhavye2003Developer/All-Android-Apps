@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1001839848604",
+    "project_id": "learn-storage-59cda",
+    "storage_bucket": "learn-storage-59cda.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1001839848604:android:eb5709b165935aef601159",
+        "android_client_info": {
+          "package_name": "com.example.learnstorage"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1001839848604-38o5f8jpt5eju7bs3h74hgg20fo6t0q1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTxlFC4a9o8qFhDEeHs7jcPhqi5p_Yg9c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1001839848604-38o5f8jpt5eju7bs3h74hgg20fo6t0q1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
