@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MySelf</string>
+    <string name="theme">theme</string>
+    <string name="item">Item</string>
+</resources>
