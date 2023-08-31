@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Dice Roller</string>
+    <string name="roll_the_dice_of_life">Roll the dice of Life!!!</string>
+    <string name="roll">roll</string>
+</resources>
