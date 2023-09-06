@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/login">
+
+    <fragment
+        android:id="@+id/login"
+        android:name="com.example.taskmanager.task_fragments.LoginFragment"
+        android:label="Login" >
+        <action
+            android:id="@+id/action_login_to_main_fragment"
+            app:destination="@id/main_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/main_fragment"
+        android:name="com.example.taskmanager.task_fragments.MainFragment"
+        android:label="Main_fragment" >
+        <action
+            android:id="@+id/action_main_fragment_to_newTask"
+            app:destination="@id/newTask" />
+    </fragment>
+    <fragment
+        android:id="@+id/newTask"
+        android:name="com.example.taskmanager.task_fragments.NewTask"
+        android:label="NewTask" >
+        <action
+            android:id="@+id/action_newTask_to_main_fragment"
+            app:destination="@id/main_fragment" />
+    </fragment>
+</navigation>

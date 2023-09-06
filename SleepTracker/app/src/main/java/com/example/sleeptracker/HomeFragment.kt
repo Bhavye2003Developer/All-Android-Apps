@@ -7,11 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.example.sleeptracker.Database.SleepDatabase
 import com.example.sleeptracker.databinding.HomeFragmentBinding
 import java.util.*
 
-val sleepHolder: SleepHolder = SleepHolder("", "", "", "")
+val sleepHolder: SleepHolder = SleepHolder(null, null, null, null)
 
 class HomeFragment : Fragment(R.layout.home_fragment) {
 
@@ -23,6 +25,15 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
     ): View {
 
         timer = Timer()
+        val application = requireNotNull(this.activity).application
+        val dataSource = SleepDatabase.getInstance(application)?.sleepDatabaseDAO
+        val viewModelFactory = dataSource?.let { sleepViewModelFactory(it, application) }
+
+        val sleepTrackerViewModel = viewModelFactory?.let { ViewModelProvider(this, it) }?.get(sleepViewModel::class.java)
+
+        binding.lifecycleOwner = this
+
+        binding.sleepTrackerViewModel = sleepTrackerViewModel
 
         binding = HomeFragmentBinding.inflate(layoutInflater, container, false)
         return binding.root
@@ -36,13 +47,16 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
 
         binding.startTimer.setOnClickListener {
             timer.start()
+
             sleepHolder.startTime = timer.getStartTime()
+
             binding.stopTimer.isEnabled = true
             binding.startTimer.isEnabled = false
         }
 
         binding.stopTimer.setOnClickListener {
             timer.end()
+
             sleepHolder.endTime = timer.getEndTime()
             sleepHolder.hrs = timer.getDuration()
 

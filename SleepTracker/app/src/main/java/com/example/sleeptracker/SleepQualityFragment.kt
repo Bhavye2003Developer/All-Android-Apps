@@ -45,7 +45,6 @@ class SleepQualityFragment : Fragment(R.layout.sleep_quality_fragment) {
 
     private fun printWhichButton(quality: String) {
         sleepHolder.sleepQuality = quality
-        Toast.makeText(context, sleepHolder.getSleepRecord(), Toast.LENGTH_SHORT).show()
         findNavController().navigate(SleepQualityFragmentDirections.actionSleepQualityFragmentToHomeFragment())
     }
 }

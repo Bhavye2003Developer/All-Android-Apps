@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Task Manager</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+    <string name="tasks">Tasks</string>
+    <string name="to_add_task">To add task</string>
+    <string name="deadline_e_g_2023_09_30">Deadline (e.g., 2023-09-30)</string>
+    <string name="task_name">Task Name</string>
+    <string name="create_task">Create Task</string>
+</resources>

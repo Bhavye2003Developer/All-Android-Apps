@@ -1,12 +1,12 @@
 package com.example.sleeptracker
 
+import java.time.Duration
+import java.time.LocalDateTime
+
 data class SleepHolder(
-    var startTime: String,
-    var endTime: String,
-    var sleepQuality: String,
-    var hrs: String
+    var startTime: LocalDateTime?,
+    var endTime: LocalDateTime?,
+    var sleepQuality: String?,
+    var hrs: Duration?
 ){
-    fun getSleepRecord(): String {
-        return "Start: $startTime\nEnd: $endTime\nQuality: $sleepQuality\nHours:Minutes:Seconds $hrs"
-    }
 }

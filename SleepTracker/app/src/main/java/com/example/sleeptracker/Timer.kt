@@ -33,19 +33,31 @@ class Timer {
         endTime = getCurrentDateTime()
         finalDuration = Duration.between(startTime, endTime)
     }
+//
+//    @RequiresApi(Build.VERSION_CODES.O)
+//    fun getStartTime(): String {
+//        return "${startTime.format(DateFormatter)} Time: ${startTime.format(TimeFormatter)}"
+//    }
+//
+//    @RequiresApi(Build.VERSION_CODES.O)
+//    fun getEndTime(): String {
+//        return "${endTime.format(DateFormatter)} Time: ${endTime.format(TimeFormatter)}"
+//    }
+//
+//    @RequiresApi(Build.VERSION_CODES.S)
+//    fun getDuration(): String {
+//        return "${finalDuration.toHours()}:${finalDuration.toMinutes()}:${finalDuration.toKotlinDuration().inWholeSeconds}"
+//    }
 
-    @RequiresApi(Build.VERSION_CODES.O)
-    fun getStartTime(): String {
-        return "${startTime.format(DateFormatter)} Time: ${startTime.format(TimeFormatter)}"
+    fun getStartTime(): LocalDateTime {
+        return startTime
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
-    fun getEndTime(): String {
-        return "${endTime.format(DateFormatter)} Time: ${endTime.format(TimeFormatter)}"
+    fun getEndTime(): LocalDateTime {
+        return endTime
     }
 
-    @RequiresApi(Build.VERSION_CODES.S)
-    fun getDuration(): String {
-        return "${finalDuration.toHours()}:${finalDuration.toMinutes()}:${finalDuration.toKotlinDuration().inWholeSeconds}"
+    fun getDuration(): Duration {
+        return finalDuration
     }
 }
