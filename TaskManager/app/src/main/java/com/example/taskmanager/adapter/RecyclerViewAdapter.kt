@@ -8,6 +8,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.taskmanager.R
 import com.example.taskmanager.task_room.Task
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class RecyclerViewAdapter(private val context: Context, private var tasks_list: List<Task>) :
@@ -33,13 +35,19 @@ class RecyclerViewAdapter(private val context: Context, private var tasks_list: 
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = tasks_list[position]
-        holder.taskTitle.text = item.task
-        holder.startDate.text = item.start_date.toString()
-        holder.deadline.text = item.end_date.toString()
+        holder.taskTitle.text = "Task -: ${item.task}"
+        holder.startDate.text = "Started from -: ${convertLongToTime(item.start_date).toString()}"
+        holder.deadline.text = "Deadline -: ${convertLongToTime(item.end_date).toString()}"
     }
 
     fun updateTasks(newTasks: List<Task>) {
         tasks_list = newTasks
         notifyDataSetChanged()
+    }
+
+    private fun convertLongToTime(time: Long): String {
+        val date = Date(time)
+        val sdf = SimpleDateFormat("EEE MMM dd yyyy", Locale.getDefault())
+        return sdf.format(date)
     }
 }

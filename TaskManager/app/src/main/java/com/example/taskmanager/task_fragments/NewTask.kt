@@ -33,7 +33,7 @@ class NewTask : TaskBaseFragment(R.layout.new_task_fragment) {
         super.onViewCreated(view, savedInstanceState)
         
         binding.calendarView.setOnDateChangeListener { _, year, month, dayOfMonth ->
-            selectedDate = Date(year, month, dayOfMonth).time
+            selectedDate = createTimestamp(year, month, dayOfMonth)
         }
 
         binding.buttonCreateTask.setOnClickListener {
@@ -51,6 +51,18 @@ class NewTask : TaskBaseFragment(R.layout.new_task_fragment) {
     }
     private fun currentDate(): Long {
         val calendar = Calendar.getInstance()
+        calendar.set(Calendar.HOUR_OF_DAY, 0)
+        calendar.set(Calendar.MINUTE, 0)
+        calendar.set(Calendar.SECOND, 0)
+        calendar.set(Calendar.MILLISECOND, 0)
+        return calendar.timeInMillis
+    }
+
+    private fun createTimestamp(year: Int, month: Int, dayOfMonth: Int): Long {
+        val calendar = Calendar.getInstance()
+        calendar.set(Calendar.YEAR, year)
+        calendar.set(Calendar.MONTH, month)
+        calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
         calendar.set(Calendar.HOUR_OF_DAY, 0)
         calendar.set(Calendar.MINUTE, 0)
         calendar.set(Calendar.SECOND, 0)
