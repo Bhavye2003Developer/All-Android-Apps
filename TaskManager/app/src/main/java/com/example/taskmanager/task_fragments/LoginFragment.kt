@@ -32,7 +32,6 @@ class LoginFragment : Fragment(R.layout.login_fragment) {
             checkLogin()
         }
     }
-
     private fun checkLogin() {
         username = binding.usernameEditText.editableText.toString()
         password = binding.passwordEditText.editableText.toString()

@@ -10,11 +10,14 @@ import androidx.room.Query
 interface TaskDao {
 
     @Query("SELECT * FROM task_table ORDER BY end_date ASC")
-    fun getAllTasks() : LiveData<List<Task>>
+    fun getAllTasks(): LiveData<List<Task>>
 
     @Insert
     fun insertTask(task: Task)
 
     @Delete
     fun deleteTask(task: Task)
+
+    @Query("UPDATE task_table SET isDone=1 WHERE id=:task_id")
+    fun markTaskDone(task_id: Long)
 }

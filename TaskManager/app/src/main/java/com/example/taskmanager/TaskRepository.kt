@@ -16,4 +16,9 @@ class TaskRepository(private val taskDao: TaskDao) {
     suspend fun deleteTask(task: Task){
         taskDao.deleteTask(task)
     }
+
+    @Suppress("RedundantSuspendModifier")
+    suspend fun markTaskDone(task_id: Long){
+        taskDao.markTaskDone(task_id)
+    }
 }

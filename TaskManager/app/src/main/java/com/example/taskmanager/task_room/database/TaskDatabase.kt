@@ -21,7 +21,7 @@ abstract class TaskDatabase : RoomDatabase() {
                 synchronized(TaskDatabase::class) {
                     INSTANCE = Room.databaseBuilder(
                         context.applicationContext, TaskDatabase::class.java, "task_database"
-                    ).allowMainThreadQueries().build()
+                    ).build()
                 }
             }
             return INSTANCE!!
