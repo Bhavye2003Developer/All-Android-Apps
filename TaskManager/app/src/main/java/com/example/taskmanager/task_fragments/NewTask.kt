@@ -33,17 +33,14 @@ class NewTask : TaskBaseFragment(R.layout.new_task_fragment) {
         super.onViewCreated(view, savedInstanceState)
         
         binding.calendarView.setOnDateChangeListener { _, year, month, dayOfMonth ->
-            selectedDate = createTimestamp(year, month, dayOfMonth)
+            selectedDate = Date(year, month, dayOfMonth).time
         }
 
         binding.buttonCreateTask.setOnClickListener {
             task = binding.task.editableText.toString()
 
-            MainScope().launch(Dispatchers.Default) {
-//                insertData(0, task!!, currentDate(), selectedDate!!)
-                viewModel.insertTask(
-                    Task(0, task!!, currentDate(), selectedDate!!)
-                )
+            MainScope().launch(Dispatchers.IO) {
+                insertData(0, task!!, currentDate(), selectedDate!!)
             }
 
             val action = NewTaskDirections.actionNewTaskToMainFragment()
@@ -61,16 +58,9 @@ class NewTask : TaskBaseFragment(R.layout.new_task_fragment) {
         return calendar.timeInMillis
     }
 
-    private fun createTimestamp(year: Int, month: Int, dayOfMonth: Int): Long {
-        val calendar = Calendar.getInstance()
-        calendar.set(Calendar.YEAR, year)
-        calendar.set(Calendar.MONTH, month)
-        calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
-        calendar.set(Calendar.HOUR_OF_DAY, 0)
-        calendar.set(Calendar.MINUTE, 0)
-        calendar.set(Calendar.SECOND, 0)
-        calendar.set(Calendar.MILLISECOND, 0)
-        return calendar.timeInMillis
+    private fun insertData(id: Long, user_task: String, start_date: Long, end_date: Long){
+        val task = Task(id, task!!, start_date, end_date)
+        viewModel.insertTask(task)
     }
 
 }
