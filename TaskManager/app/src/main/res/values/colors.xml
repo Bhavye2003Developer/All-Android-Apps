@@ -7,24 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="colorPrimary">#007ACC</color> <!-- Primary color for buttons -->
+    <color name="colorAccent">#FF4081</color> <!-- Accent color for EditText background tint -->
     <color name="colorTextPrimary">#000000</color> <!-- Primary text color -->
-
-
-    <!-- Primary Color -->
-    <color name="colorPrimary">#1976D2</color> <!-- Replace with your desired primary color -->
-
-    <!-- Primary Dark Color -->
-    <color name="colorPrimaryDark">#1565C0
-    </color> <!-- Replace with a darker shade of your primary color -->
-
-    <!-- Accent Color -->
-    <color name="colorAccent">#FF4081</color> <!-- Replace with your desired accent color -->
-
-    <!-- Text Colors -->
-    <color name="textColorPrimary">#000000</color> <!-- Replace with your desired text color -->
-    <color name="textColorPrimaryInverse">#FFFFFF</color> <!-- Replace with inverse text color -->
-
-    <!-- Background Colors -->
-    <color name="windowBackground">#FFFFFF
-    </color> <!-- Replace with your desired window background color -->
 </resources>

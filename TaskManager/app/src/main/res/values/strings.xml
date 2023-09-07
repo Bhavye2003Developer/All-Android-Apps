@@ -8,5 +8,4 @@
     <string name="deadline_e_g_2023_09_30">Deadline (e.g., 2023-09-30)</string>
     <string name="task_name">Task Name</string>
     <string name="create_task">Create Task</string>
-    <string name="task_details">Task Details</string>
 </resources>

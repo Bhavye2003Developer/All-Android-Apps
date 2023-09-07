@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
@@ -11,18 +12,17 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="16dp"
-        android:gravity="center"
-        android:background="?android:attr/windowBackground">
+        android:gravity="center">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/task_details"
+            android:text="Task Details"
             android:textSize="24sp"
+            android:textColor="@android:color/black"
             android:textStyle="bold"
             android:layout_gravity="center"
-            android:layout_marginBottom="24dp"
-            android:textColor="?android:attr/textColorPrimary" />
+            android:layout_marginBottom="24dp" />
 
         <EditText
             android:id="@+id/task"
@@ -32,25 +32,23 @@
             android:inputType="text"
             android:minHeight="48dp"
             android:padding="8dp"
-            android:backgroundTint="?attr/colorAccent"
-            android:layout_marginBottom="16dp"
-            android:textColor="?android:attr/textColorPrimary" />
+            android:backgroundTint="@color/colorAccent"
+            android:layout_marginBottom="16dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Deadline"
             android:textSize="18sp"
+            android:textColor="@android:color/black"
             android:textStyle="bold"
-            android:layout_marginBottom="8dp"
-            android:textColor="?android:attr/textColorPrimary" />
+            android:layout_marginBottom="8dp" />
 
         <CalendarView
             android:id="@+id/calendarView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:theme="@style/CalendarViewStyle" />
+            android:layout_marginBottom="16dp" />
 
         <Button
             android:id="@+id/buttonCreateTask"
@@ -58,8 +56,8 @@
             android:layout_height="wrap_content"
             android:text="Create Task"
             android:textSize="16sp"
-            android:textColor="?android:attr/textColorPrimaryInverse"
-            android:background="?attr/colorPrimary"
+            android:textColor="@android:color/white"
+            android:background="@color/colorPrimary"
             android:layout_gravity="center"
             android:layout_marginTop="16dp" />
 
