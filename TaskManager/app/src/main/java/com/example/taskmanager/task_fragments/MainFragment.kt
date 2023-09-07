@@ -28,9 +28,11 @@ class MainFragment : TaskBaseFragment(R.layout.main_fragment), OnItemClickListen
         binding = DataBindingUtil.inflate(inflater, R.layout.main_fragment, container, false)
 
         if (adapter == null) {
-            adapter = RecyclerViewAdapter(
-                emptyList(), this
-            ) // Initialize with an empty list
+            adapter = context?.let {
+                RecyclerViewAdapter(
+                    it, emptyList()
+                )
+            } // Initialize with an empty list
             binding.recyclerViewTask.adapter = adapter
             binding.recyclerViewTask.setHasFixedSize(true)
         }
