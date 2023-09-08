@@ -10,7 +10,7 @@ class NoteAdapter(private val noteList: MutableList<Note>) :
     RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
 
 
-    class NoteViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
+    class NoteViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val noteView: TextView = view.findViewById(R.id.noteTextView)
     }
 
