@@ -12,4 +12,6 @@
 
     <!-- Define the colorPrimary -->
     <color name="colorPrimary">#3F51B5</color>
+
+    <color name="primary_color">#007ACC</color> <!-- Define your primary color -->
 </resources>

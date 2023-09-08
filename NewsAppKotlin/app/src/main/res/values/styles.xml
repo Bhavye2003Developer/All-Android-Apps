@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Other theme attributes -->
+
+        <!-- Define your AppBarOverlay style -->
+        <item name="android:theme">@style/AppBarOverlay</item>
+    </style>
+
+    <style name="AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <!-- Define your overlay attributes here, if needed -->
+    </style>
+
+
+</resources>
