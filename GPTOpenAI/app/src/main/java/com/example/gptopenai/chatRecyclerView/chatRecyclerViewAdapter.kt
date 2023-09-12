@@ -26,7 +26,6 @@ class ChatRecyclerViewAdapter(private val chats: MutableList<Chat>) :
     override fun getItemCount(): Int {
         return chats.size
     }
-
     override fun onBindViewHolder(holder: ChatViewHolder, position: Int) {
         val singleChat = chats[position]
         holder.queryView.text = singleChat.userQuery

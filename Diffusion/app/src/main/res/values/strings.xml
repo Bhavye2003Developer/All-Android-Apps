@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Diffusion</string>
+    <string name="enter_your_prompt">Enter your prompt</string>
+</resources>

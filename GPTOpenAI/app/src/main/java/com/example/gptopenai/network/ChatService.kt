@@ -9,12 +9,11 @@ import retrofit2.http.Headers
 import retrofit2.http.POST
 import java.util.concurrent.TimeUnit
 
-
-const val api_key = "Your API Key"
+const val api_key = ""
 const val BASE_URL = "https://api.openai.com/"
 
 
-var client = OkHttpClient.Builder()
+var client: OkHttpClient = OkHttpClient.Builder()
     .connectTimeout(6000, TimeUnit.SECONDS)
     .readTimeout(6000, TimeUnit.SECONDS).build()
 

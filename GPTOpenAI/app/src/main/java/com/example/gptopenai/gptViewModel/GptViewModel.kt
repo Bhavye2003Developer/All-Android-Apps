@@ -1,5 +1,6 @@
 package com.example.gptopenai.gptViewModel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -32,7 +33,8 @@ class GptViewModel : ViewModel() {
                 list?.add(Chat(query, answer))
                 _listChats.postValue(list)
             }
-            catch (_: java.lang.Exception){
+            catch (e: java.lang.Exception){
+                Log.d("ChatError", e.toString())
                 list?.add(Chat(query, "Error : Please try again"))
                 _listChats.postValue(list)
             }
