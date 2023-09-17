@@ -12,6 +12,9 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.google.android.gms.location.*
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
+import kotlin.properties.Delegates
 
 class LocationViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -25,8 +28,22 @@ class LocationViewModel(application: Application) : AndroidViewModel(application
         LocationServices.getFusedLocationProviderClient(application.applicationContext)
 
     private lateinit var mCurrentLocation: Location
+    private var database = Firebase.database
+    private var ref = database.reference
+
+    private var locateID by Delegates.notNull<Int>()
 
     init {
+
+        // firebase
+        ref.child("Locations").get().addOnSuccessListener {
+            locateID = if (it.value is List<*>) {
+                (it.value as List<*>).size
+            } else {
+                0
+            }
+        }
+
         if (ActivityCompat.checkSelfPermission(
                 application.applicationContext, Manifest.permission.ACCESS_FINE_LOCATION
             ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
@@ -43,6 +60,8 @@ class LocationViewModel(application: Application) : AndroidViewModel(application
         fusedLocationClient.lastLocation.addOnSuccessListener {
             mCurrentLocation = it
         }
+
+        Log.d("Firebase", "Database -> $database")
     }
 
     @SuppressLint("MissingPermission")
@@ -51,15 +70,22 @@ class LocationViewModel(application: Application) : AndroidViewModel(application
             createLocationRequest(), object : LocationCallback() {
                 override fun onLocationResult(locationResult: LocationResult) {
                     // Update UI with location data
-                    val newLocation = LocationItem(
-                        locationResult.lastLocation?.latitude.toString(),
-                        locationResult.lastLocation?.longitude.toString()
-                    )
+                    val newLocation = locationResult.lastLocation?.longitude?.let {
+                        locationResult.lastLocation?.latitude?.let { it1 ->
+                            LocationItem(
+                                it1, it
+                            )
+                        }
+                    }
+                    if (newLocation != null) {
+                        writeNewLocation(newLocation)
+                    }
 
                     val listLocations = _liveAllLocations.value!!
-                    listLocations.add(newLocation)
+                    if (newLocation != null) {
+                        listLocations.add(newLocation)
+                    }
                     _liveAllLocations.postValue(listLocations)
-                    Log.d("newlocate", _liveAllLocations.value.toString())
                 }
             }, Looper.getMainLooper()
         )
@@ -72,6 +98,11 @@ class LocationViewModel(application: Application) : AndroidViewModel(application
             setMaxUpdateDelayMillis(6000)
         }.build()
         return locationRequest
+    }
+
+    fun writeNewLocation(locationItem: LocationItem) {
+        ref.child("Locations").child(locateID.toString()).setValue(locationItem)
+        ++locateID
     }
 
 }

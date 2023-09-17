@@ -10,6 +10,9 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tracker.databinding.LocationFragmentBinding
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 
 class LocationFragment : Fragment(R.layout.location_fragment) {
 
@@ -28,7 +31,7 @@ class LocationFragment : Fragment(R.layout.location_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        Toast.makeText(context, "Fragment created", Toast.LENGTH_SHORT).show()
+//        Toast.makeText(context, "Fragment created", Toast.LENGTH_SHORT).show()
 
         binding.locationRecyclerView.setHasFixedSize(true)
 
@@ -42,6 +45,7 @@ class LocationFragment : Fragment(R.layout.location_fragment) {
             binding.locationRecyclerView.adapter = RecyclerAdapter(it)
         }
         locationViewModel.liveAllLocations.observe(viewLifecycleOwner, observer)
+
     }
 
 }
