@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">D Share</string>
+    <string name="sender">SENDER</string>
+    <string name="receiver">RECEIVER</string>
+    <string name="device_1">Device 1</string>
+    <string name="device_address">Device address</string>
+    <string name="discovered_devices">Discovered Devices</string>
+</resources>
